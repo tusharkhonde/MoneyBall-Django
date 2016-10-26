@@ -1,0 +1,56 @@
+{% extends "views/index.html" %}
+
+{% block content %}
+<div class="row">
+    <h1 data-bind="text: company.name" style="text-align: center"></h1>
+    <div class="container-fluid mb-company-graph-container">
+        <div class="col-md-4 mb-graph-container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Revenue</div>
+                <div class="panel-body">
+                    <div id="mb-graph-rev" class="mb-graph"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-graph-container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Cash Burn</div>
+                <div class="panel-body">
+                    <div id="mb-graph-burn" class="mb-graph"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-graph-container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Headcount</div>
+                <div class="panel-body">
+                    <div id="mb-graph-hc" class="mb-graph"></div>
+                </div>
+            </div>
+        </div>
+        <!-- TODO: Add two more DOM containers for Rev/HC and Burn/HC graphs -->
+        <!-- It might be useful to check out scripts/constants.js for expected div ids -->
+        <div class="col-md-4 mb-graph-container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Revenue/Headcount</div>
+                <div class="panel-body">
+                    <div id="mb-graph-rev-hc" class="mb-graph"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-graph-container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Cash Burn/Headcount</div>
+                <div class="panel-body">
+                    <div id="mb-graph-burn-hc" class="mb-graph"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/static/client/scripts/company.js"></script>
+<script type="text/javascript">
+    loadPage("{{ cname | safe }}");
+</script>
+{% endblock content %}

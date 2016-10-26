@@ -1,0 +1,26 @@
+{% extends "views/index.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <ul data-bind="foreach: companies" class="mb-list-unstyled">
+        <div class="col-md-3">
+            <div class="panel panel-default mb-company-panel hvr-grow"
+                 data-bind="attr: { 'id': 'company-panel-' + name }">
+                <div class="panel-heading" data-bind="text: name"></div>
+                <div class="panel-body">
+                    <img width="72" height="72" class="mb-company-panel-icon"
+                         data-bind="attr:{src: $parent.images[name]}" />
+                    <div class="mb-company-panel-text">
+                        <p data-bind="text: founded"></p>
+                        <p data-bind="text: series"></p>
+                        <p data-bind="text: valuation"></p>
+                    </div>
+                    <p data-bind="text: description"></p>
+                </div>
+            </div>
+        </div>
+    </ul>
+</div>
+
+<script type="text/javascript" src="/static/client/scripts/companies.js"></script>
+{% endblock content %}

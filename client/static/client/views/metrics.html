@@ -1,0 +1,75 @@
+{% extends "views/index.html" %}
+
+{% block content %}
+<div class="row">
+    <div id="sidebar-menu" class="mb-sidebar">
+        <ul class="mb-list-unstyled" data-bind="foreach: companies">
+            <li>
+                <input type="checkbox"
+                       data-bind="checked: $parent.graph.selectedCompanies[name],
+                                  attr: { 'id': 'company-graph-checkbox-'
+                                          + $parent.companyNameToId(name) }" />
+                <span data-bind="text: name"></span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-md-2"></div>
+    <div class="container-fluid col-md-10">
+        <div class="row mb-graph-container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Revenue</div>
+                <div class="panel-body">
+                    <div class="col-md-10">
+                        <div id="mb-graph-rev" class="mb-graph"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-graph-container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Cash Burn</div>
+                <div class="panel-body">
+                    <div class="col-md-10">
+                        <div id="mb-graph-burn" class="mb-graph"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-graph-container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Headcount</div>
+                <div class="panel-body">
+                    <div class="col-md-10">
+                        <div id="mb-graph-hc" class="mb-graph"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- TODO: Add two more DOM containers for Rev/HC and Burn/HC graphs -->
+        <!-- It might be useful to check out scripts/constants.js for expected div ids -->
+         <div class="row mb-graph-container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Revenue/Headcount</div>
+                <div class="panel-body">
+                    <div class="col-md-10">
+                        <div id="mb-graph-rev-hc" class="mb-graph"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="row mb-graph-container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Cash Burn/Headcount</div>
+                <div class="panel-body">
+                    <div class="col-md-10">
+                        <div id="mb-graph-burn-hc" class="mb-graph"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/static/client/scripts/metrics.js"></script>
+{% endblock content %}
