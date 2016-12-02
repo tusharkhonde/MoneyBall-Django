@@ -15,20 +15,16 @@ $(document).ready(function() {
         }
     }
 
-    /* DOM bindings */
-
+    
     var bindPanels = function() {
         model.companies().forEach(function(company) {
-            // Use this instead of the jQuery selector the jQuery selector
-            // requires escaping
+        
             var eId = document.getElementById('company-panel-' + company.name);
             $(eId).click(function(e) {
                 window.location.href = '/company/' + company.name;
             });
         });
     }
-
-    /* On page load */
 
     $.get('/api/int/companies', function(response) {
         response.forEach(function(company) {

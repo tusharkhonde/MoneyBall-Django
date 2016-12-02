@@ -26,7 +26,6 @@ class ClientAPI:
         def create_company_map():
             return {c.id: c.name for c in Company.objects.all()}
 
-        # Replace company ids with company names
         def map_company(obj, company_map):
             if 'company' in obj:
                 obj['company'] = company_map[obj['company']]
